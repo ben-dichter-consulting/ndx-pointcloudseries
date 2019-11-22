@@ -1,0 +1,43 @@
+groups:
+- neurodata_type_def: PointCloudSeries
+  neurodata_type_inc: TimeSeries
+  doc: type for storing time-varying 3D point clouds
+  datasets:
+  - name: data
+    neurodata_type_inc: VectorData
+    dtype: float
+    dims:
+    - time
+    - '[x, y, z]'
+    shape:
+    - null
+    - 3
+    doc: datapoints locations over time
+    quantity: '?'
+  - name: data_index
+    neurodata_type_inc: VectorIndex
+    dims:
+    - index
+    shape:
+    - null
+    doc: datapoints indices
+    quantity: '?'
+  - name: color
+    neurodata_type_inc: VectorData
+    dtype: float
+    dims:
+    - time
+    - '[r, g, b]'
+    shape:
+    - null
+    - 3
+    doc: datapoints color
+    quantity: '?'
+  - name: color_index
+    neurodata_type_inc: VectorIndex
+    dims:
+    - index
+    shape:
+    - null
+    doc: datapoints colors indices
+    quantity: '?'

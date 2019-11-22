@@ -1,7 +1,5 @@
 from pynwb.spec import NWBNamespaceBuilder, NWBGroupSpec
 from export_spec import export_spec
-from pynwb.base import TimeSeries
-
 
 def main():
     ns_builder = NWBNamespaceBuilder(doc='type for storing time-varying 3D point clouds',
@@ -18,6 +16,7 @@ def main():
 
     PointCloudSeries.add_dataset(
         name='data',
+        neurodata_type_inc='VectorData',
         doc='datapoints locations over time',
         dims=('time', '[x, y, z]'),
         shape=(None, 3),
@@ -25,24 +24,39 @@ def main():
         quantity='?'
     )
 
+    PointCloudSeries.add_dataset(
+        name='data_index',
+        neurodata_type_inc='VectorIndex',
+        doc='datapoints indices',
+        dims=('index',),
+        shape=(None),
+        quantity='?'
+    )
 
-# PointCloudSeries (inherits from TimeSeries)
-#     data_index (VectorIndex)
-#         targets data
-#     data (VectorData)
-#         shape: (None, 3)
-#         dims: ('time', 'x,y,z')
-#     color (VectorData)
-#         shape: (None , 3)
-#         dims: ('time', 'r,g,b')
-#         quantity: '?'
-#     color_index (VectorIndex) [same as data_index]
-#         targets color
-#         quantity: '?'
+    PointCloudSeries.add_dataset(
+        name='color',
+        neurodata_type_inc='VectorData',
+        doc='datapoints color',
+        dims=('time', '[r, g, b]'),
+        shape=(None, 3),
+        dtype='float',
+        quantity='?'
+    )
+
+    PointCloudSeries.add_dataset(
+        name='color_index',
+        neurodata_type_inc='VectorIndex',
+        doc='datapoints colors indices',
+        dims=('index',),
+        shape=(None),
+        quantity='?'
+    )
 
     new_data_types = [PointCloudSeries]
 
     ns_builder.include_type('PointCloudSeries', namespace='core')
+    ns_builder.include_type('VectorData', namespace='core')
+    ns_builder.include_type('VectorIndex', namespace='core')
 
     export_spec(ns_builder, new_data_types)
 

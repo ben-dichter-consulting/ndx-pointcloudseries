@@ -1,0 +1,13 @@
+namespaces:
+- author: Luiz Tauffer and Ben Dichter
+  contact: ben.dichter@gmail.com
+  doc: type for storing time-varying 3D point clouds
+  name: ndx-pointcloudseries
+  schema:
+  - namespace: core
+    neurodata_types:
+    - PointCloudSeries
+    - VectorData
+    - VectorIndex
+  - source: ndx-pointcloudseries.extensions.yaml
+  version: 0.0.1
