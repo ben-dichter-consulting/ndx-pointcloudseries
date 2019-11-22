@@ -19,15 +19,31 @@ pip install git+https://github.com/ben-dichter-consulting/ndx-pointcloudseries.g
 from datetime import datetime
 from pynwb import NWBFile, NWBHDF5IO
 from ndx_pointcloudseries import PointCloudSeries
+from hdmf.common.table import VectorIndex, VectorData
 
 nwb = NWBFile('session_description', 'identifier', datetime.now().astimezone())
+
+data = [[1., 1., 1.], [2., 2., 2.], [1., 2., 1.]]
+data_vect = VectorData(name='points', description='desc', data=data)
+
+indexes = [2, 3]
+data_ind = VectorIndex(name='indexes', data=indexes, target=data_vect)
+
+pcs = PointCloudSeries(
+        name='PointCloudSeries',
+        point_cloud_data=data_vect,
+        point_cloud_index=data_ind,
+        rate=10.
+    )
+nwb.add_acquisition(pcs)
+print(nwb.acquisition['PointCloudSeries'])
 
 # Write nwb file
 with NWBHDF5IO('test_pointcloudseries.nwb', 'w') as io:
     io.write(nwb)
 
 # Read nwb file and check its content
-with NWBHDF5IO('test_pointcloudseries.nwb', 'r', load_namespaces=True) as io:
+with NWBHDF5IO('test_pointcloudseries.nwb', 'r') as io:
     nwb = io.read()
-    print(nwb)
+    print(nwb.acquisition['PointCloudSeries'])
 ```
