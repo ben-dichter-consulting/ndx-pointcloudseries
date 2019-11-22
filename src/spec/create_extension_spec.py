@@ -54,7 +54,7 @@ def main():
 
     new_data_types = [PointCloudSeries]
 
-    ns_builder.include_type('PointCloudSeries', namespace='core')
+    ns_builder.include_type('TimeSeries', namespace='core')
     ns_builder.include_type('VectorData', namespace='core')
     ns_builder.include_type('VectorIndex', namespace='core')
 

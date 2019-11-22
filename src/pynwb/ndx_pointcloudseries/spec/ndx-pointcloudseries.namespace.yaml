@@ -6,7 +6,7 @@ namespaces:
   schema:
   - namespace: core
     neurodata_types:
-    - PointCloudSeries
+    - TimeSeries
     - VectorData
     - VectorIndex
   - source: ndx-pointcloudseries.extensions.yaml
