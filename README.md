@@ -31,7 +31,7 @@ data_ind = VectorIndex(name='indexes', data=indexes, target=data_vect)
 
 pcs = PointCloudSeries(
         name='PointCloudSeries',
-        point_cloud_data=data_vect,
+        point_cloud=data_vect,
         point_cloud_index=data_ind,
         rate=10.
     )

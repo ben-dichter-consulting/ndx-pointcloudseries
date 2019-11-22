@@ -15,7 +15,7 @@ def main():
         )
 
     PointCloudSeries.add_dataset(
-        name='point_cloud_data',
+        name='point_cloud',
         neurodata_type_inc='VectorData',
         doc='datapoints locations over time',
         dims=('time', '[x, y, z]'),
