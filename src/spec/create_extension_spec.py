@@ -26,19 +26,19 @@ def main():
     )
 
 
-PointCloudSeries (inherits from TimeSeries)
-    data_index (VectorIndex)
-        targets data
-    data (VectorData)
-        shape: (None, 3)
-        dims: ('time', 'x,y,z')
-    color (VectorData)
-        shape: (None , 3)
-        dims: ('time', 'r,g,b')
-        quantity: '?'
-    color_index (VectorIndex) [same as data_index]
-        targets color
-        quantity: '?'
+# PointCloudSeries (inherits from TimeSeries)
+#     data_index (VectorIndex)
+#         targets data
+#     data (VectorData)
+#         shape: (None, 3)
+#         dims: ('time', 'x,y,z')
+#     color (VectorData)
+#         shape: (None , 3)
+#         dims: ('time', 'r,g,b')
+#         quantity: '?'
+#     color_index (VectorIndex) [same as data_index]
+#         targets color
+#         quantity: '?'
 
     new_data_types = [PointCloudSeries]
 
