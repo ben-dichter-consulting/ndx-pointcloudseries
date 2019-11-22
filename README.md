@@ -24,10 +24,10 @@ from hdmf.common.table import VectorIndex, VectorData
 nwb = NWBFile('session_description', 'identifier', datetime.now().astimezone())
 
 data = [[1., 1., 1.], [2., 2., 2.], [1., 2., 1.]]
-data_vect = VectorData(name='points', description='desc', data=data)
+data_vect = VectorData(name='point_cloud', description='desc', data=data)
 
 indexes = [2, 3]
-data_ind = VectorIndex(name='indexes', data=indexes, target=data_vect)
+data_ind = VectorIndex(name='point_cloud_index', data=indexes, target=data_vect)
 
 pcs = PointCloudSeries(
         name='PointCloudSeries',
