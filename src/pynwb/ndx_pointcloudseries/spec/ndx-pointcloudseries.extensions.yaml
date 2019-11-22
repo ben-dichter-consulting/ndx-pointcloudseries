@@ -3,7 +3,7 @@ groups:
   neurodata_type_inc: TimeSeries
   doc: type for storing time-varying 3D point clouds
   datasets:
-  - name: data
+  - name: point_cloud_data
     neurodata_type_inc: VectorData
     dtype: float
     dims:
@@ -14,7 +14,7 @@ groups:
     - 3
     doc: datapoints locations over time
     quantity: '?'
-  - name: data_index
+  - name: point_cloud_index
     neurodata_type_inc: VectorIndex
     dims:
     - index
